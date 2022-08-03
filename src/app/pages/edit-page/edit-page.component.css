@@ -1,0 +1,46 @@
+.cancel-button {
+    background-color: red;
+    height: 35px;
+    width: 80px;
+    border-radius: 10px;
+    border-color: red;
+    color: #fff;
+}
+
+.submit-button {
+    /* background-color: green; */
+    height: 35px;
+    width: 80px;
+    border-radius: 10px;
+    /* border-color: green; */
+    margin-left: 5px;
+    /* color: #fff; */
+}
+
+.form-control {
+    border-radius: 8px;
+    width: 50%;
+    height: 30px;
+    border-color: burlywood;
+
+}
+
+.detail-form {
+    margin-left: 35%;
+    margin-top: 10%;
+}
+
+.list-h3 {
+    margin-left: 44%;
+    margin-top: 5%;
+    margin-bottom: -5%;
+}
+
+.edit-label {
+    font-weight: bold;
+}
+
+.error-msg {
+    color: red;
+}
+

@@ -1,0 +1,103 @@
+<h3 class="list-h3">Update Your Details</h3>
+<form [formGroup]="form" (ngSubmit)="updateItem()" class="detail-form">
+    <!-- Edit Name Field  -->
+    <input 
+        class="form-control" 
+        type = "text" 
+        name="name" 
+        [(ngModel)]="post[0].name" 
+        formControlName="name" 
+        placeholder="Enter your Name" /><br/>
+    
+    <!-- Name Field Error Validation -->
+    <span class="error-msg" *ngIf="(showErrors && form.get('name')?.errors?.['required'])"> *Name is Required</span>
+    <span class="error-msg" *ngIf="(showErrors && form.hasError('minlength', 'name'))"> Name is too short</span><br/><br/>
+
+
+    <!-- Edit Email Field  -->
+    <input 
+        class="form-control" 
+        type = "text" 
+        name="email" 
+        [(ngModel)]="post[0].email" 
+        formControlName="email" 
+        placeholder="Enter your Email" /><br/>
+    
+    <!-- Email Field Error Validation -->
+    <span class="error-msg" *ngIf="(showErrors && form.get('email')?.errors?.['required'])"> *Email is Required</span>
+    <span class="error-msg" *ngIf="(showErrors && form.hasError('pattern', 'email'))"> You have entered an invalid E-mail Address</span><br/><br/>
+
+    <!-- Edit Phone Number Field  -->
+    <input 
+        class="form-control" 
+        type = "number" 
+        name="phone" 
+        [(ngModel)]="post[0].phone" 
+        formControlName="phone" 
+        placeholder="Enter your Phone Number" /><br/>
+    
+    <!-- Number Field Error Validation -->
+    <span class="error-msg" *ngIf="(showErrors && form.get('phone')?.errors?.['required'])"> *Phone Number is Required</span>
+    <span class="error-msg" *ngIf="(showErrors && form.hasError('pattern', 'phone'))"> Phone Number should be 10 digit</span><br/><br/>
+    
+    <!-- Edit Country Field  -->
+    <select 
+        class="form-control" 
+        type = "text" 
+        name="country" 
+        [(ngModel)]="post[0].country" 
+        formControlName="country" 
+        placeholder="Enter your Country">
+        
+        <option *ngFor="let country of Countries" [value]="country.name" [selected]="country.name ===  post[0].country? true : false">{{country.name}}</option>
+    </select><br/>
+
+     <!-- Country Field Error Validation -->
+     <span class="error-msg" *ngIf="(showErrors && form.get('country')?.errors?.['required'])"> *Country is Required</span><br/><br/>
+    
+
+    <!-- Edit Gender Field  -->
+    <div>
+        <label class="edit-label">Select Your Gender </label>
+    <input 
+    type = "radio" 
+    name="gender" 
+    [(ngModel)]="post[0].gender" 
+    value="Male" 
+    formControlName="gender"/>
+    <label>Male</label>
+    
+    <input  
+    type = "radio" 
+    name="gender" 
+    [(ngModel)]="post[0].gender" 
+    value="Female" 
+    formControlName="gender"/>
+    <label>Female</label>
+</div><br/>
+    
+<!-- Gender Field Error Validation -->
+<span class="error-msg" *ngIf="(showErrors && form.get('gender')?.errors?.['required'])"> *Gender is Required</span>
+    
+ <!-- Edit Language Field  -->
+<div>
+    <label class="edit-label">Select Your Languages</label>
+<div *ngFor="let language of Languages" >
+    <label>
+        <input type="checkbox" 
+        [value]="language.name"  
+        [checked]="selectedLanguage.indexOf(language.name) !== -1 ? true : false" 
+        (change)="onSelectLanguage($event)"/>{{language.name}}
+    </label>
+</div>
+</div>
+
+ <!-- Language Field Error Validation -->
+ <span class="error-msg" *ngIf="(showErrors && form.get('selectedLanguage')?.errors?.['required'])"> *Language is Required</span><br/><br/>
+    
+
+
+
+    <a  href = "#" [routerLink]="['/post/', 'list']"><button class="cancel-button" type="button">Cancel</button></a>
+    <button class="submit-button"  [disabled]="(showErrors && !form.valid)" type="submit">Submit</button>
+</form>

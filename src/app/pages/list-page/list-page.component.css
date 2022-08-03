@@ -1,0 +1,51 @@
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 70%;
+    margin-left: 15%;
+    margin-top: 5%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+  }
+  
+  /* tr:nth-child(even) {
+    background-color: rgb(238, 230, 221);
+  } */
+
+  .add-button {
+    background-color: antiquewhite;
+    height: 40px;
+    width: 100px;
+    border-radius: 10px;
+    border-color: pink;
+    margin-left: 47%;
+    margin-bottom: 10px;
+  }
+
+  .list-h3 {
+    margin-left: 40%;
+  }
+
+  .edit-button {
+    background-color: skyblue;
+    height: 35px;
+    width: 80px;
+    border-radius: 10px;
+    border-color: skyblue;
+    color: #fff;
+}
+
+.delete-button {
+    background-color: red;
+    height: 35px;
+    width: 80px;
+    border-radius: 10px;
+    border-color: red;
+    margin-left: 5px;
+    color: #fff;
+}
+

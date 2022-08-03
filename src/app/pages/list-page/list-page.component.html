@@ -1,0 +1,31 @@
+<h3 class="list-h3">Welcome to this Registration Portal</h3>
+<button class="add-button" (click)="goToPage()">Add Details</button>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone Number</th>
+      <th>Country</th>
+      <th>Gender</th>
+      <th>Languages</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let post of postList">
+      <td>{{post.id}}</td>
+      <td>{{post.name}}</td>
+      <td>{{post.email}}</td>
+      <td>{{post.phone}}</td>
+      <td>{{post.country}}</td>
+      <td>{{post.gender}}</td>
+      <td>{{post.languages.length ? post.languages.join(','): ''}}</td>
+      <td>
+        <a href = "#" [routerLink]="['/post/', post.id, 'edit']"><button class="edit-button" type="button">Edit</button></a>
+        <button class="delete-button" type="button" (click)="deleteUser(post.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+  </table>
